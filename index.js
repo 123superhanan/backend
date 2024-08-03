@@ -1,6 +1,6 @@
-import express, { Router } from "express"
+import express  from "express"
 import connection from "./database/db.js"
-import Router from "./Routes.js"
+import router from "./Routes.js"
 import cors from "cors"
 import bodyParser from "body-parser"
 const app = express()
@@ -13,7 +13,7 @@ app.use(cors())
 
 app.use(bodyParser.json({extended: true}));
 app.use(bodyParser.urlencoded({extended: true}))
-app.use("/", Router)
+app.use("/", router)
   
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
