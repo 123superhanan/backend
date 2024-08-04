@@ -1,16 +1,26 @@
 import express from 'express';
-import {UserData, postData, countryname} from "./FakeApi.js"
+import {UserData, postData} from "../FakeApi.js";
 import { SignUp } from '../Controller/userController.js';
 
 const router = express.Router();
 
-app.get('/sign_up', SignUp);
+router.post('/signUp', SignUp);
    
-  app.get('/User', (req, res) => {
-      res.send(UserData);
+router.get('/User', (req, res) => {
+  try {
+    res.json(UserData); // Send data as JSON
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to fetch user data' });
+  }
     })
-   app.get('/post', (req, res) => {
-      res.send(postData);
+    router.get('/post', (req, res) => {
+      try {
+        res.json(postData);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Failed to fetch post data' });
+      }
     })
 
 export default router

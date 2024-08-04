@@ -1,19 +1,24 @@
-import express  from "express"
+import express from "express"
 import connection from "./database/db.js"
-import router from "./Routes.js"
+import Router from "./Route/Router.js"
 import cors from "cors"
 import bodyParser from "body-parser"
 const app = express()
-const port = 4000
+const port = process.env.PORT || 4000;
 
 
 
 
-app.use(cors())
+app.use(cors({
+  origin: 'http://localhost:3000', // Replace with your frontend URL
+  methods: 'GET, POST, PUT, DELETE',
+  allowedHeaders: 'Content-Type, Authorization'   
+
+}))
 
 app.use(bodyParser.json({extended: true}));
 app.use(bodyParser.urlencoded({extended: true}))
-app.use("/", router)
+app.use("/", Router)
   
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
