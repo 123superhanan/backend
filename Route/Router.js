@@ -1,10 +1,11 @@
 import express from 'express';
 import {UserData, postData} from "../FakeApi.js";
 import { SignUp } from '../Controller/userController.js';
-
+import {blogcategory} from "../Controller/blogCatControl.js"
 const router = express.Router();
 
 router.post('/signUp', SignUp);
+router.post('/add_category', blogcategory);
    
 router.get('/User', (req, res) => {
   try {
