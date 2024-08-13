@@ -1,9 +1,9 @@
-import express from "express"
-import connection from "./database/db.js"
-import Router from "./Route/Router.js"
-import cors from "cors"
-import bodyParser from "body-parser"
-const app = express()
+import express from "express";
+import connection from "./database/db.js";
+import Router from "./Route/Router.js";
+import cors from "cors";
+import bodyParser from "body-parser";
+const app = express();
 const port = process.env.PORT || 4000;
 
 

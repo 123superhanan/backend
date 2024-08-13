@@ -1,10 +1,10 @@
 import express from 'express';
 import {UserData, postData} from "../FakeApi.js";
-import { SignUp } from '../Controller/userController.js';
+
 import { BlogCategory, getBlogCategory } from "../Controller/blogCatControl.js"
 const router = express.Router();
 
-router.post('/signUp', SignUp);
+//router.post('/signUp', SignUp);
 
 router.post('/add_category', BlogCategory)
 router.get('/get_categories', getBlogCategory)
