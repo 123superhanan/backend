@@ -15,5 +15,5 @@ const blogCatSchema  = new mongoose.Schema(
     }
 );
 
-const blogcat = mongoose.model("blog_category", blogCatSchema)
-export default blogcat;
+const blogCat = mongoose.model("blog_category", blogCatSchema)
+export default blogCat;

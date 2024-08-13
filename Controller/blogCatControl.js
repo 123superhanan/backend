@@ -1,7 +1,6 @@
-import blogcat from "../Model/UserModel.js";
+import BlogCat from "../Model/BlogCate.js";
 
-
-export const blogcat = async (req, res) => {
+export const BlogCategory = async (req, res) => {
     try {
         const blogCat = await new BlogCat(req.body);
         blogCat.save();
@@ -9,7 +8,7 @@ export const blogcat = async (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-}
+};
 
 
 export const getBlogCategory = async (req, res) => {
@@ -20,4 +19,4 @@ export const getBlogCategory = async (req, res) => {
     } catch (error) {
         res.status(500).json(error);
     }
-}
+};
