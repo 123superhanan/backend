@@ -2,25 +2,45 @@ import mongoose from "mongoose";
 
 const blogSchema = new mongoose.Schema(
     {
-        cat_id: {
-            type: String,
-            required: true,
-        },
-        name: {
-            type: String,
+        id: {
+            type: Number,
             required: true,
             unique: true
-        },
-        author_name: {
+          },
+          title: {
             type: String,
-            required: true,
-        },
-        blog_details: {
+            required: true
+          },
+          image: {
             type: String,
-            required: true,
-        }
+            required: true
+          },
+          category: {
+            type: String,
+            required: true
+          },
+          author: {
+            type: String,
+            required: true
+          },
+          authorInfo: {
+            type: String,
+            required: true
+          },
+          content: {
+            type: String,
+            required: true
+          },
+          Authorimage: {
+            type: String,
+            required: true
+          },
+          info: {
+            type: String,
+            required: true
+          }
     }
 )
 
-const Blogs = mongoose.model('blog', blogSchema)
+const Blogs = mongoose.model('Blog', blogSchema)
 export default Blogs;
