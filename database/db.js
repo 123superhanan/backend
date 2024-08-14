@@ -1,24 +1,19 @@
 import mongoose from "mongoose";
+import dotenv from 'dotenv';
 
-//mongodb+srv://abdulhananabbasi50:POBcLSr0udxd0Wjh@cluster0.mrm7pfp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+dotenv.config();
 
-
-//mongodb+srv://abdulhananabbasi50:<password>@cluster0.mrm7pfp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 const connection = async () => {
+    const URL = process.env.MONGODB_ID;
 
-const URL = "mongodb+srv://abdulhananabbasi50:POBcLSr0udxd0Wjh@cluster0.mrm7pfp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+    try {
+        console.log("Connecting to database...");
+        await mongoose.connect(URL, { useNewUrlParser: true, useUnifiedTopology: true });
+        console.log("Database connection established successfully");
 
-try {
-console.log("connect db")
-    await mongoose.connect(URL, {useNewUrlParser: "true"});
-    console.log("database connection established successfully");
-
-} catch (error) {
-
-    console.log("Error Occur", error);
-
-}
+    } catch (error) {
+        console.log("Error occurred while connecting to the database:", error);
+    }
 }
 
-
-export default connection
+export default connection;
