@@ -1,5 +1,6 @@
-[
-    {
+{
+"users":[
+   {
    
     "title":"'post-one'",
     "image": "/src/assets/h-c-1.png",
@@ -51,7 +52,8 @@
     "content":"The Impact of Technology on the Workplace: How Technology is Changing",
     "Authorimage":"/src/assets/au-1.png",
     "info":"August 20, 2022"
-},{
+}],
+"post":[{
    
     "title":"'post-six'",
     "image": "/src/assets/h-c-1.png",
@@ -72,4 +74,4 @@
     "Authorimage":"/src/assets/au-1.png",
     "info":"August 20, 2022"
 }
-]
+]}

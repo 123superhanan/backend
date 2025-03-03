@@ -1,4 +1,4 @@
-export const postData = [
+ const postData = [
     {
       "postId": 1,
       "id": 1,
