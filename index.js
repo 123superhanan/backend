@@ -1,29 +1,36 @@
 import express from "express";
 import articles from "./data.js";
-
+import cors from "cors";
 const app = express();
 const port = 3000;
 
-// Middleware (fixed req, res, next)
+app.use(cors());
+// Simple route
+
 app.use((req, res, next) => {
   console.log("Hello, I am middleware!");
-  next(); // continue to the next route
+  req.name = "hanan";
+  next(); 
 });
 
-// Simple route
+app.use((req, res, next) => {
+  console.log("Hello, I am middleware 2",req.name);
+  next();
+})
 app.get("/", (req, res) => {
+  console.log("i am a tough kid", req.name);
   res.send("Welcome to the Articles API");
 });
 
-// Articles route
+// app.use((req, res, next) => {
+//   console.log("Hello, I am middleware 2",req.name);
+//   return res.end("karma");
+// })
 app.get("/articles", (req, res) => {
   res.json(articles);
 });
-app.use((req, res, next) => {
-  console.log("Hello, I am middleware 2");
-  return res.end("karma");
-})
-// Start the server
+
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

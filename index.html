@@ -60,7 +60,7 @@
         // Fetch users from backend
         async function fetchUsers() {
     try {
-        const response = await fetch("http://localhost:5000/users");
+        const response = await fetch("http://localhost:3000/articles");
         const users = await response.json();
         
         const usersList = document.getElementById("users-list");
