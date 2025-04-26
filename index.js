@@ -1,22 +1,27 @@
-
 import express from "express";
-//import cors from "cors";
+import articles from "./data.js";
+
 const app = express();
-const port = process.env.PORT || 4000;
-// import Data from "./blogs.json" //assert {type:"json"};
-app.use(express.json());
+const port = 5000;
 
- app.get('/', (req, res) => {
-  res.send("Welcome to the Fake API!")
- })
+// Middleware (fixed req, res, next)
+app.use((req, res, next) => {
+  console.log("Hello, I am middleware!");
+  next(); // continue to the next route
+});
 
-// app.get('/users', (req, res) => {
-//  res.json(Data.users);
-// })
+// Simple route
+app.get("/", (req, res) => {
+  res.send("Welcome to the Articles API");
+});
 
-  
+// Articles route
+app.get("/articles", (req, res) => {
+  res.json(articles);
+});
 
+// Start the server
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+  console.log(`Server running at http://localhost:${port}`);
 });
 
